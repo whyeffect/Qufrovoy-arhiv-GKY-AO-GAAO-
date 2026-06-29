@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Государственный архив Астраханской области — Информационная система</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="customAlert" class="custom-alert hidden">
+        <div class="alert-content">
+            <div class="alert-header">ИНФОРМАЦИОННОЕ СООБЩЕНИЕ</div>
+            <p id="alertText">Текст уведомления</p>
+            <button onclick="closeAlert()">Закрыть</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            ГКУ АО «ГААО»
+            <span>ГОСУДАРСТВЕННЫЙ АРХИВ АСТРАХАНСКОЙ ОБЛАСТИ</span>
+        </div>
+        <nav class="nav">
+            <a href="#search-section">Поиск по фондам</a>
+            <a href="#news-section">Новости</a>
+            <a href="#timeline-section">Хроника</a>
+            <a href="#schedule">Читальный зал</a>
+            <a href="#feedback">Обратная связь</a>
+        </nav>
+    </header>
+
+    <section class="search-hub" id="search-section">
+        <div class="archive-overlay"></div>
+        <div class="hub-content">
+            <div class="location-badge">АСТРАХАНСКАЯ ГУБЕРНИЯ • ОЦИФРОВАННОЕ НАСЛЕДИЕ</div>
+            <h1>Автоматизированный поиск</h1>
+            <p>Электронный доступ к метрическим книгам, ревизским сказкам, переписям и фондам личного происхождения XVIII–XX веков</p>
+            
+            <div class="main-search-container">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Введите фамилию, тему или номер фонда (например: Сапожниковы, Фонд 52, Межевание)...">
+                    <button onclick="executeArchiveSearch()">Искать в реестре</button>
+                </div>
+                <div id="searchResults" class="results-box hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="news-section">
+        <div class="section-header">
+            <h2>Лента новостей учреждения</h2>
+            <p>Официальные публикации, отчеты о рассекречивании и новые поступления в цифровой фонд</p>
+        </div>
+
+        <div class="news-container">
+            <article class="news-card">
+                <div class="news-meta">29 июня 2026</div>
+                <h3>Завершение оцифровки метрических книг Духовной консистории</h3>
+                <p>В рамках плановых работ ИТ-отделом ГКУ АО «ГААО» завершено сканирование и индексация документов фонда №52 за период 1890–1915 гг. Все графические копии высокого разрешения доступны в виртуальном зале.</p>
+            </article>
+
+            <article class="news-card">
+                <div class="news-meta">15 мая 2026</div>
+                <h3>Публикация документов купеческих династий Астрахани</h3>
+                <p>Открыт удаленный доступ к личным делам, торговым договорам и мемуарным записям крупнейших рыбопромышленников Астраханской губернии XIX века, включая фонды Сапожниковых и Хлебниковых.</p>
+            </article>
+
+            <article class="news-card">
+                <div class="news-meta">10 апреля 2026</div>
+                <h3>Профилактические работы с подлинниками графического фонда</h3>
+                <p>Сообщаем исследователям, что карты генерального межевания Астраханского уезда временно недоступны для физического просмотра ввиду проведения реставрационных работ. Используйте цифровые копии.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section bg-alt" id="timeline-section">
+        <div class="section-header">
+            <h2>Историческая хроника и структура хранения</h2>
+            <p>Ключевые вехи формирования архивных массивов Астраханского региона</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-img-box">
+                    <img src="img/epoch-1.jpg" alt="Дореволюционный период">
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1720 — 1917 гг.</div>
+                    <h3>Дореволюционные фонды губернии</h3>
+                    <p>Массивы документов канцелярии Астраханского гражданского губернатора, губернского статистического комитета и органов сословного самоуправления. Основной источник для генеалогических исследований.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-img-box">
+                    <img src="img/epoch-2.jpg" alt="Картография">
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-date">XVIII — XIX вв.</div>
+                    <h3>Картографический и межевой архив</h3>
+                    <p>Планы генерального и специального межевания, чертежи укреплений Каспийской военной флотилии, топографические карты Астраханского, Красноярского, Царевского и Енотаевского уездов.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-img-box">
+                    <img src="img/epoch-3.jpg" alt="Советский период">
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-date">С 1918 года</div>
+                    <h3>Советский и новейший периоды</h3>
+                    <p>Документы исполнительных комитетов Советов народных депутатов, штабов партизанских отрядов периода ВОВ, промышленных предприятий Нижней Волги и фонды личного происхождения выдающихся астраханцев.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="schedule">
+        <div class="section-header">
+            <h2>Регламент работы читального зала</h2>
+            <p>Порядок личного посещения и работы с делами в здании архива</p>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дни недели</th>
+                        <th>Часы приема исследователей</th>
+                        <th>Технический регламент</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Понедельник — Четверг</strong></td>
+                        <td>09:00 — 17:00</td>
+                        <td>Перерыв на санитарную обработку документов: 12:30 — 13:30</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Пятница</strong></td>
+                        <td>09:00 — 16:00</td>
+                        <td><span class="tech-tag">Работа с первоисточниками</span> Санитарный день для ветхих фондов</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Суббота — Воскресенье</strong></td>
+                        <td>Выходные дни</td>
+                        <td>Прием электронных заявок через веб-интерфейс осуществляется 24/7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="contacts-section" id="feedback">
+        <div class="contact-block form-block">
+            <h3>Обращения в ИТ-отдел ГКУ АО «ГААО»</h3>
+            <p>Подача заявок на устранение технических сбоев или предложений по развитию поисковых модулей информационной системы</p>
+            <form id="ticketForm" onsubmit="handleFormSubmit(event)">
+                <input type="text" id="senderName" placeholder="ФИО заявителя" required>
+                <input type="email" id="senderEmail" placeholder="Адрес электронной почты" required>
+                <textarea id="senderMessage" rows="4" placeholder="Текст технического обращения..." required></textarea>
+                <button type="submit">Направить обращение</button>
+            </form>
+        </div>
+
+        <div class="contact-block map-block">
+            <h3>Местонахождение учреждения</h3>
+            <p>г. Астрахань, пересечение ул. Кирова и ул. Победы, д. 14</p>
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=48.039234%2C46.348360&z=16&mode=search&ol=biz&oid=1084201292" width="100%" height="255" frameborder="0" allowfullscreen="true"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Государственное казенное учреждение Астраханской области «Государственный архив Астраханской области».</p>
+        <p class="sub-footer">Информационная система «Цифровой Архив» • Отчет по производственной практике студента группы ИСП-3209</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
